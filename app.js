@@ -5,10 +5,16 @@ let inputAmigo = document.querySelector("input");
 let listaAmigos = document.getElementById("listaAmigos");
 let resultado = document.getElementById("resultado");
 
+document.addEventListener("keydown", (e)=>{
+    if (e.key == "Enter"){
+        agregarAmigo();
+    }
+});
+
 function agregarAmigo(){
     let nuevoAmigo = inputAmigo.value;
     if (nuevoAmigo == ""){
-        alert('Por favor, inserte un nombre.')
+        alert('Por favor, inserte un elemento.')
     } else{
         amigos.push(nuevoAmigo);
         crearLista();
@@ -30,7 +36,7 @@ function  crearLista(){
 function sortearAmigo(){
     if ( amigos.length <= 1 ){
         listaAmigos.innerHTML = "";
-        alert('No has ingresado suficientes amigos. Vuelve a intentarlo.');
+        alert('No ha ingresado suficientes elementos. Vuelva a intentarlo.');
     }else{
         let numRandom = Math.floor(Math.random() * amigos.length);
         let amigoRandom = amigos[numRandom];
